@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Balance from "./components/Balance";
+import History from "./components/History";
+import Form from "./components/Form";
+
+import DataProvider from "./context/DataProvider";
+import FlexContainer from "./components/FlexContainer";
+import {TitlePrimary} from './components/Typography'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <FlexContainer direction="column" gap="2rem">
+      <DataProvider>
+        <TitlePrimary>Expense Tracker</TitlePrimary>
+        <Balance />
+        <History />
+        <Form />
+      </DataProvider>
+    </FlexContainer>
   );
 }
 
